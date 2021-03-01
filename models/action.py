@@ -6,7 +6,7 @@ class _execute(action._action):
 	program = str()
 	arguments = str()
 	timeout = int()
-	use_program_rc = True
+	use_program_rc = bool()
 
 	def run(self,data,persistentData,actionResult):
 		program = helpers.evalString(self.program,{"data" : data})
@@ -19,7 +19,7 @@ class _execute(action._action):
 			if len(arguments) > 0:
 				command.extend([str(x) for x in arguments.split(" ")])
 			process = subprocess.Popen(command, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-			if self.timeout:
+			if self.timeout > 0:
 				try:
 					stdout, stderr = process.communicate(timeout=self.timeout)
 				except subprocess.TimeoutExpired:
