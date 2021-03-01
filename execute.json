@@ -1,0 +1,62 @@
+{
+    "name" : "execute",
+    "author" : "biscuit-thief",
+    "version" : 1.9,
+    "categories" : ["automation"],
+    "description" : "Execute a process locally",
+    "icon" : null,
+    "requirements" : {
+        "jimi_min_version" : null,
+        "jimi_max_version" : null,
+        "plugins" : []
+    },
+    "collections" : {
+
+    },
+    "triggers" : {
+
+    },
+    "actions" : {
+        "execute" : {
+            "display_name" : "execute",
+            "className" : "_execute",
+            "class_location" : "models.action",
+            "description" : "Executes the provided process locally and returns the output",
+            "fields" : [
+                { "schema_item" : "program", "schema_value" : "program", "type" : "input", "label" : "program", "description" : "The program to execute (e.g. python3)", "required" : true, "jimi_syntax" : false },
+                { "schema_item" : "arguments", "schema_value" : "arguments", "type" : "input", "label" : "arguments", "description" : "Arguments to pass to the program", "required" : false, "jimi_syntax" : false },
+                { "schema_item" : "timeout", "schema_value" : "timeout", "type" : "input", "label" : "timeout", "description" : "How long to let the process run before killing it (default infinite)", "required" : false, "jimi_syntax" : false }
+            ],
+            "data_out" : {
+                "result" : { 
+                    "description" : "Determines if the given action was successful.",
+                    "type" : "boolean",
+                    "always_present" : true,
+                    "values" : {
+                        "True" : { "description" : "Action completed successfully." },
+                        "False" : { "description" : "Action was unsuccessful." }
+                    }
+                },
+                "rc" : {
+                    "description" : "Returns the provided rc field value.",
+                    "type" : "number",
+                    "always_present" : true,
+                    "values" : {
+                        "(number)" : { "description" : "The integer provided within the rc field." }
+                    }
+                },
+                "data" : {
+                    "description" : "Outputs any returned data from the executed process",
+                    "type" : "text",
+                    "always_present" : false,
+                    "values" : {
+                        "(string)" : { "description" : "The returned data from the executed process" }
+                    }
+                }
+            }
+        }
+    },
+    "settings" : {
+
+    }
+}
