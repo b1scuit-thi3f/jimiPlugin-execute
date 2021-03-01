@@ -1,7 +1,7 @@
 {
     "name" : "execute",
     "author" : "biscuit-thief",
-    "version" : 1.9,
+    "version" : 1.5,
     "categories" : ["automation"],
     "description" : "Execute a process locally",
     "icon" : null,
@@ -25,7 +25,8 @@
             "fields" : [
                 { "schema_item" : "program", "schema_value" : "program", "type" : "input", "label" : "program", "description" : "The program to execute (e.g. python3)", "required" : true, "jimi_syntax" : false },
                 { "schema_item" : "arguments", "schema_value" : "arguments", "type" : "input", "label" : "arguments", "description" : "Arguments to pass to the program", "required" : false, "jimi_syntax" : false },
-                { "schema_item" : "timeout", "schema_value" : "timeout", "type" : "input", "label" : "timeout", "description" : "How long to let the process run before killing it (default infinite)", "required" : false, "jimi_syntax" : false }
+                { "schema_item" : "timeout", "schema_value" : "timeout", "type" : "input", "label" : "timeout", "description" : "How long to let the process run before killing it (default infinite)", "required" : false, "jimi_syntax" : false },
+                { "schema_item" : "use_program_rc", "schema_value" : "use_program_rc", "type" : "input", "label" : "use program rc", "description" : "Option to use the program's return code in the rc output", "required" : false, "jimi_syntax" : false }
             ],
             "data_out" : {
                 "result" : { 
